@@ -48,7 +48,7 @@ console.log('angka yang terbesar yaitu ' + angkaTerbesar(arr));
 
 //membalik string
 
-let str = 'Rofik Awaludin a QA Automation Engineer'
+let str = 'Rofik Awaludin a QA Automation Engineer \n education'
 function terbalik(str){
   let hasil = '';
   for (let i = str.length - 1; i >= 0; i --){
@@ -76,6 +76,19 @@ function isPalindrome(str){
 isPalindrome("level"); // Output: level adalah palindrome
 isPalindrome("A man a plan a canal Panama"); // Output: katak adalah palindrome
 isPalindrome("rumah"); // Output: rumah bukan palindrome
+
+//hitung karakter kecuali new line
+
+function countCharacters(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== "\n") {
+      count++;
+    }
+  }
+  return count;
+}
+console.log('jumlah karakter tidak termasuk new line ialah '+countCharacters(str))
 
 //membandingkan array dengan angka
 let angka = 5;
@@ -128,6 +141,13 @@ console.log('array yang lebih besar dari rata-rata adalah '+ lebihBesardariRata(
 
 //rata-rata
 
+function rataRatapakeReduce(arr) {
+  let rataRata = arr.reduce((total, num) => total + num, 0) / arr.length;
+  return rataRata;
+}
+
+console.log('rata rata array pakai arr.reduce = ' + rataRatapakeReduce(arr));
+
 function rataRata(arr){
   let total = 0;
   for (let i =0; i < arr.length; i ++){
@@ -144,10 +164,10 @@ function removeDuplicates(arr) {
 }
 console.log('remove duplicate dalam array sehingga hasilnya menjadi ' + removeDuplicates(arr));
 
-function removeDuplicates(arr) {
+function removeDuplicatesSort(arr) {
   return Array.from(new Set(arr)).sort((a, b) => a - b);
 }
-console.log('remove duplicate dalam array hasilnya diurutkan dari angka terkecil ' + removeDuplicates(arr));
+console.log('remove duplicate dalam array hasilnya diurutkan dari angka terkecil ' + removeDuplicatesSort(arr));
 
 // menjumlahkan tiga angka dalam array apakah hasilnya 0 True/False
 
@@ -210,6 +230,6 @@ Student.prototype.showGrade = function() {
 let person1 = new Person('Rofik', 17);
 let student1 = new Student('Udin', 20, 'S');
 
-person1.greet(); // Output: Hello, my name is John and I am 25 years old.
-student1.greet(); // Output: Hello, my name is Jane and I am 20 years old.
-student1.showGrade(); // Output: My grade is A
+person1.greet();
+student1.greet();
+student1.showGrade();
